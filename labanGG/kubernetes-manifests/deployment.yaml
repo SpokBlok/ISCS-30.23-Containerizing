@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iscscontainer-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: iscscontainer-webapp
+  template:
+    metadata:
+      labels:
+        app: iscscontainer-webapp
+    spec:
+      containers:
+        - name: iscscontainer-webapp
+          image: spookyblooky/iscscontainer:latest
+          ports:
+            - containerPort: 8080
